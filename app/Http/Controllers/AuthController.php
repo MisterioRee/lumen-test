@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\JWTAuth;
@@ -24,7 +24,8 @@ class AuthController extends Controller
             'email'    => 'required|email|max:255',
             'password' => 'required',
         ]);
-
+        
+        
         try {
 
             if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
