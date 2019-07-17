@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\JWTAuth;
+
 
 class AuthController extends Controller
 {
@@ -48,4 +50,19 @@ class AuthController extends Controller
 
         return response()->json(compact('token'));
     }
+
+    public function postRegister(Request $request, User $user)
+    {
+
+        $validatedUser = $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|max:255|min:6'
+
+        ]);
+
+        return $user->createUser(   $validatedUser );
+    }
+
+    
 }
