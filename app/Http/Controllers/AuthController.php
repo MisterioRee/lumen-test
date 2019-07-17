@@ -65,4 +65,7 @@ class AuthController extends Controller
     }
 
     
+    public function getHash()
+    {
+    }
 }

@@ -32,7 +32,10 @@ $router->group(['prefix' =>'api'], function () use ($router) {
     $router->post('/login', 'AuthController@postLogin');
     $router->post('/register', 'AuthController@postRegister');
  
-    
+    $router->group(['middleware' => 'auth'], function ($router) {
+        $router->get('/hash', 'AuthController@getHash');
+    });
+
 });
 
 

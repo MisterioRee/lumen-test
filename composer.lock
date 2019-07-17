@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad170707e78a23685cd55cf41d51a72d",
+    "content-hash": "b30506af765b155b498e17479c658c96",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2357,6 +2357,39 @@
                 "shell"
             ],
             "time": "2018-10-13T15:16:03+00:00"
+        },
+        {
+            "name": "rehan/ree-random-hash",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MisterioRee/ReeRandomHash.git",
+                "reference": "bdbb5bcb8742da5ecf939d226a4de4834c0c5208"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MisterioRee/ReeRandomHash/zipball/bdbb5bcb8742da5ecf939d226a4de4834c0c5208",
+                "reference": "bdbb5bcb8742da5ecf939d226a4de4834c0c5208",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ProfessorHash\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammad Rehan",
+                    "email": "mrmuhammadrehan65@gmail.com"
+                }
+            ],
+            "description": "Generates random hash | random string",
+            "time": "2019-07-17T23:13:08+00:00"
         },
         {
             "name": "symfony/console",
