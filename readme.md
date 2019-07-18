@@ -1,21 +1,51 @@
-# Lumen PHP Framework
+# Lumen PHP Framework With JWT authentication
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+There are many libraries that helps to implement Authorization via jwt token, to avoide reinventing the wheel i choose "#tymon/jwt-auth" 
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+The application has three endpoints: 
 
-## Official Documentation
+| **Endpoint** 	| **Method**     	|
+|---------------|------------------	|
+| /login   	    | POST          	|
+| /register	    | POST           	|
+| /hash 	    | GET           	|
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## Documentation
 
-## Security Vulnerabilities
+~Endpoints have the following perms:~
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-## License
+#/login
+````
+    {
+	    "email" : "sample@sample.com",
+	    "password" : "sample123"
+    }
+    
+````
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#/register
+````
+    {
+		"name"  : "sample",
+		"email" : "sample@sample.com",
+		"password" : "sample123"
+    }
+````
+
+# /hash
+
+````
+    {
+		token : "Bearer xyzxvyzsvyz"
+    }
+
+````
+This token is assign and responded while logining in 
+
+## Dependencies
+
+- [rehan/ree-random-hash](https://packagist.org/packages/rehan/ree-random-hash)   - For random hash generating
+- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)                      - For authentication using JSON Web Tokens
+- [phpunit/phpunit]                                                               - For unit tests
+
