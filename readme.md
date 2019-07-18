@@ -12,10 +12,10 @@ The application has three endpoints:
 
 ## Documentation
 
-~Endpoints have the following perms:~
+Endpoints have the following perms:
 
 
-#/login
+# /login
 ````
     {
 	    "email" : "sample@sample.com",
@@ -24,7 +24,7 @@ The application has three endpoints:
     
 ````
 
-#/register
+# /register
 ````
     {
 		"name"  : "sample",
