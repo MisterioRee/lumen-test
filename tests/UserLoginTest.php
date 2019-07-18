@@ -20,8 +20,10 @@ class UserLoginTest extends TestCase
             'password' => '12345',
             'email' => 'hahn.kellie@aufderhar.biz'
         ]);
-
+       //When they hit the endpoint /register create a new user, while passing necessary data  
         $content = json_decode($this->response->getContent());
+        
+         //Then there should be a new record 
         $this->assertObjectHasAttribute('token', $content, 'Token does not exists');
 
         
