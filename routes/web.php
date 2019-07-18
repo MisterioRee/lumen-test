@@ -1,5 +1,5 @@
 <?php
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,9 +11,7 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return " <center> <h1>*********** Lumen Said Hello *********** </h1> </center>";
-});
+
 
 
 /*
@@ -22,18 +20,33 @@ $router->get('/', function () use ($router) {
 |--------------------------------------------------------------------------
 |
 | Since we are serving specif operation we'll create a group of the operations (Api)
-|
+| Prefix to the current group is '/' (root URL) 
 */
-$router->group(['prefix' =>'api'], function () use ($router) {
-    $router->get('/', function(){
-        return " <center> <h1>*********** Lumen Said Hello *********** </h1> </center>";
+$router->group(['prefix' =>'/'], function () use ($router) {
+
+    //Root URL
+    $router->get('/', function () {
+        return " <center> <h1>*********** Hello Lumen *********** </h1> </center>";
     });
 
+    //Login route 
     $router->post('/login', 'AuthController@postLogin');
+
+    //Register route
     $router->post('/register', 'AuthController@postRegister');
- 
+   
+    /*
+    |--------------------------------------------------------------------------
+    | Apply the MiddleWare Authentication  
+    |--------------------------------------------------------------------------
+    |
+    | The following sub-group has applied middleware authentication
+    |
+    */
     $router->group(['middleware' => 'auth'], function ($router) {
-        $router->get('/hash', 'AuthController@getHash');
+       
+        //Get hash route
+        $router->get('/hash', 'AuthController@getHash'  );    
     });
 
 });
