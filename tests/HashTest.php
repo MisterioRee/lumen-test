@@ -2,8 +2,9 @@
 
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
+use Illuminate\Http\Response;
 
-class ExampleTest extends TestCase
+class HashTest extends TestCase
 {
     /**
      * A basic test example.
@@ -12,12 +13,8 @@ class ExampleTest extends TestCase
      */
     public function testExample()
     {
-        // $this->get('/');
+        $response = $this->call('GET', '/hash');
 
-        // $this->assertEquals(
-        //     $this->app->version(), $this->response->getContent()
-        // );
-
-        $this->withoutEvents();
+        $this->assertEquals(401, $response->status());
     }
 }
